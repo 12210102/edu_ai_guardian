@@ -1,0 +1,243 @@
+/* ═══════════════════════════════════════════════════════
+   EduAI Guardian v7 — Cinematic Soft UI Styles
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── FONTS ─── */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── ROOT ─── */
+:root {
+  --bg: #070b14;
+  --surface: #0e1530;
+  --surface2: #131d35;
+  --border: rgba(100, 120, 255, 0.12);
+  --accent: #7c5cfc;
+  --accent2: #fc5c7d;
+  --accent3: #43e97b;
+  --accent4: #f7971e;
+  --cyan: #22d3ee;
+  --text: #e8e6f0;
+  --text2: #6b7280;
+  --glow: 0 0 40px rgba(124, 92, 252, 0.2);
+}
+
+/* ─── GLOBAL RESET ─── */
+html, body, .main, .block-container {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ─── ANIMATED BACKGROUND ─── */
+.stApp {
+  background:
+    radial-gradient(ellipse 90% 60% at 15% 5%, rgba(124,92,252,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 80% at 85% 95%, rgba(252,92,125,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(34,211,238,0.03) 0%, transparent 65%),
+    var(--bg) !important;
+  animation: bgShift 12s ease-in-out infinite alternate;
+}
+@keyframes bgShift {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(15deg); }
+}
+
+/* ─── SIDEBAR ─── */
+[data-testid="stSidebar"] {
+  background: rgba(10, 12, 22, 0.97) !important;
+  border-right: 1px solid var(--border) !important;
+  backdrop-filter: blur(20px);
+}
+[data-testid="stSidebar"] * { color: var(--text) !important; }
+[data-testid="stSidebar"] .stButton > button {
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text2) !important;
+  border-radius: 9px !important;
+  font-size: 12px !important;
+  padding: 6px 10px !important;
+  transition: all 0.3s !important;
+  text-align: left !important;
+  margin-bottom: 3px !important;
+}
+[data-testid="stSidebar"] .stButton > button:hover {
+  background: rgba(124,92,252,0.12) !important;
+  border-color: rgba(124,92,252,0.4) !important;
+  color: var(--text) !important;
+  transform: translateX(2px);
+}
+
+/* ─── MAIN CONTENT ─── */
+.block-container {
+  padding: 20px 28px !important;
+  max-width: 100% !important;
+}
+
+/* ─── TABS ─── */
+[data-testid="stTabs"] [role="tablist"] {
+  background: rgba(14, 21, 48, 0.8) !important;
+  border-radius: 14px !important;
+  padding: 4px !important;
+  border: 1px solid var(--border) !important;
+  gap: 4px !important;
+}
+[data-testid="stTabs"] [role="tab"] {
+  color: var(--text2) !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 8px 20px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s !important;
+}
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
+  background: linear-gradient(135deg, rgba(124,92,252,0.25), rgba(252,92,125,0.15)) !important;
+  color: var(--text) !important;
+  box-shadow: 0 0 16px rgba(124,92,252,0.2) !important;
+}
+
+/* ─── BUTTONS ─── */
+.stButton > button {
+  background: rgba(124,92,252,0.12) !important;
+  border: 1px solid rgba(124,92,252,0.25) !important;
+  color: var(--text2) !important;
+  border-radius: 10px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 12px !important;
+  transition: all 0.3s !important;
+}
+.stButton > button:hover {
+  background: rgba(124,92,252,0.2) !important;
+  border-color: rgba(124,92,252,0.5) !important;
+  color: var(--text) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(124,92,252,0.2) !important;
+}
+[data-testid="stButton"][data-baseweb="button"] button[kind="primary"],
+.stButton > button[kind="primary"] {
+  background: linear-gradient(135deg, var(--accent), var(--accent2)) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+.stButton > button[kind="primary"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124,92,252,0.4) !important;
+}
+
+/* ─── TEXT INPUT ─── */
+.stTextInput input {
+  background: rgba(14, 21, 48, 0.8) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  color: var(--text) !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  padding: 10px 16px !important;
+  transition: border-color 0.3s !important;
+}
+.stTextInput input:focus {
+  border-color: rgba(124,92,252,0.5) !important;
+  box-shadow: 0 0 16px rgba(124,92,252,0.1) !important;
+}
+.stTextInput input::placeholder { color: rgba(107,114,128,0.7) !important; }
+
+/* ─── SELECTBOX / DROPDOWNS ─── */
+.stSelectbox [data-baseweb="select"] {
+  background: rgba(14, 21, 48, 0.8) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+}
+.stSelectbox [data-baseweb="select"] * { color: var(--text) !important; background: var(--surface) !important; }
+
+/* ─── SLIDERS ─── */
+.stSlider [data-baseweb="slider"] { background: transparent !important; }
+.stSlider [data-baseweb="slider"] [role="slider"] {
+  background: var(--accent) !important;
+  border: 2px solid white !important;
+  box-shadow: 0 0 10px rgba(124,92,252,0.5) !important;
+}
+.stSlider .stMarkdown { color: var(--text2) !important; font-size: 11px !important; }
+
+/* ─── EXPANDER ─── */
+.streamlit-expander {
+  background: rgba(14, 21, 48, 0.6) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+}
+.streamlit-expander summary { color: var(--text2) !important; font-size: 12px !important; }
+
+/* ─── DIVIDER ─── */
+hr { border: none !important; border-top: 1px solid rgba(255,255,255,0.05) !important; margin: 16px 0 !important; }
+
+/* ─── PLOTLY CHARTS ─── */
+.js-plotly-plot .plotly, .js-plotly-plot .plotly .main-svg {
+  background: transparent !important;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124,92,252,0.3); border-radius: 2px; }
+
+/* ─── METRIC CARDS ─── */
+[data-testid="stMetric"] {
+  background: rgba(14,21,48,0.6) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  padding: 12px 16px !important;
+}
+[data-testid="stMetricValue"] { color: var(--accent) !important; font-family: 'Outfit', sans-serif !important; }
+[data-testid="stMetricLabel"] { color: var(--text2) !important; font-size: 11px !important; }
+
+/* ─── TOAST / SUCCESS / INFO ─── */
+.stSuccess, .stInfo, .stWarning, .stError {
+  background: rgba(14,21,48,0.8) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  color: var(--text) !important;
+}
+
+/* ─── AVATAR GLOW ANIMATION ─── */
+@keyframes avatarPulse {
+  0%,100% { filter: drop-shadow(0 0 12px rgba(124,92,252,0.4)); }
+  50%      { filter: drop-shadow(0 0 28px rgba(252,92,125,0.5)); }
+}
+.avatar-container { animation: avatarPulse 3s ease-in-out infinite; }
+
+/* ─── CINEMATIC GLOW PANELS ─── */
+.glow-card {
+  background: rgba(14,21,48,0.7);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--glow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.glow-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 60px rgba(124,92,252,0.25);
+}
+
+/* ─── LOADING ANIMATION ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ─── HIDE STREAMLIT BRANDING ─── */
+#MainMenu, footer, [data-testid="stToolbar"] { display: none !important; }
+
+/* ─── COLUMN GAPS ─── */
+[data-testid="column"] { gap: 12px !important; }
+
+/* ─── MARKDOWN LINKS ─── */
+a { color: #c4b5fd !important; text-decoration: none !important; }
+a:hover { color: #f9a8d4 !important; text-decoration: underline !important; }
